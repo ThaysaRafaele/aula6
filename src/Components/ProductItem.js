@@ -37,14 +37,16 @@ export default function ProductItem()
     
 
     return (
-
         <div>
-            {
-                products.map((product) => (
-                    <p key={product.id}>{product.name}</p>
-                ))
-            }
-            123
+            {loading ? (
+                <span>Carregando...</span>
+                ) : (
+                <ul>
+                    {products?.map((product, key) => (
+                    <li onClick={() => AddItem(product)} key={key}>{product.title}</li>
+                    ))}
+                </ul>
+            )}   
         </div>
     );
 }
